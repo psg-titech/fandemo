@@ -13,9 +13,10 @@ float rotation = 0.0;
 
 void setup() {
     size(640, 400);
-    node_font = loadFont("Courier-24.vlw");
-    value_font = loadFont("Courier-20.vlw");
-    label_font = loadFont("Helvetica-16.vlw");
+    frameRate(10);
+    node_font = createFont("Courier", 24);
+    value_font = createFont("Courier", 20);
+    label_font = createFont("Helvetica", 16);
     t = 0.0;
     fan = false;
 }
@@ -35,11 +36,11 @@ void draw() {
 
     // draw nodes
     noFill();
-    square(160, 100, 50);  // tmp node
-    square(160, 200, 50);  // hmd node
-    square(260, 150, 50);  // di node
-    square(360, 100, 50);  // fan node
-    square(360, 200, 50);  // th node
+    rect(160, 100, 50, 50);  // tmp node
+    rect(160, 200, 50, 50);  // hmd node
+    rect(260, 150, 50, 50);  // di node
+    rect(360, 100, 50, 50);  // fan node
+    rect(360, 200, 50, 50);  // th node
     textFont(node_font);
     textAlign(CENTER); 
     fill(0);
@@ -52,7 +53,7 @@ void draw() {
     // draw fan
     noFill();
     ellipseMode(CENTER);
-    circle(520, 125, 80);
+    ellipse(520, 125, 80, 80);
     if (fan) {
         rotation += TWO_PI / 15;
         if (rotation > TWO_PI) rotation -= TWO_PI;
@@ -131,8 +132,6 @@ void draw() {
     text(nf(di, 2, 1), 260, 140);
     text(fan ? "true" : "false", 355, 90);
     text(nf(th, 2, 1), 360, 270);
-
-    delay(100);
 }
 
 float getTmp(float t) {
