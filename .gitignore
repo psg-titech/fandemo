@@ -9,4 +9,7 @@ application.windows64
 application.macosx
 out
 
+.vscode/
 processing.js
+processing.min.js
+
